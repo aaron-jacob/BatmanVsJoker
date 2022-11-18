@@ -1,0 +1,128 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-size: 100px;
+    --mark-size: var(--cell-size);
+}
+
+body {
+    margin: 0;
+    background-color: rgba(219,218,216,255);
+    background-image: url(bg.jpg);
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+}
+
+
+
+.board {
+    width: 100vw;
+    height: 80vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n+1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n) {
+    border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+    border-bottom: none;
+}
+
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+
+.cell.x,
+.cell.circle {
+    opacity: 1;
+}
+
+.board.circle .cell:not(.x):not(.circle):hover,
+.board.x .cell:not(.x):not(.circle):hover {
+    opacity: 0.5;
+}
+
+.cell.x,
+.board.x .cell:not(.x):not(.circle):hover {
+    content: url(bat.png);
+    width: var(--mark-size);
+    height: var(--mark-size);
+}
+
+
+.board.circle .cell:not(.x):not(.circle):hover,
+.cell.circle{
+    content: url(joke.png);
+    width: var(--mark-size);
+    height: var(--mark-size);
+}
+
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font: italic 1.2em "Fira Sans", serif;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    flex-direction: column;
+}
+
+.winning-message button {
+    font: 1.2em "Copperplate", fantasy;
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    
+}
+
+.winning-message button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+
+.winning-message.show {
+    display: flex;
+}
