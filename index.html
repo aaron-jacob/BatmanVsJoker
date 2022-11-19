@@ -7,9 +7,18 @@
      initial-scale=1.0">
     <link rel="stylesheet" href = "styles.css">
     <script src="script.js" defer></script>
-    <title>BatvsJoker TikTakToe</title>
+    <title>BatvsJoker TicTacToe</title>
 </head>
 <body>
+<div class="Project">
+  <div class="scoreboard" id="scoreboard">
+    <div class="scoreboard-name scoreboard-name-one">Batman</div>
+    <div class="scoreboard-name scoreboard-name-two">Draws</div>
+    <div class="scoreboard-name scoreboard-name-third">Joker</div>
+    <div class="score" data="batpts"></div>
+    <div class="score" data="drawpts"></div>
+    <div class="score" data="jokepts"></div>
+  </div> 
 
   <div class="board" id="board">
     <div class="cell" data-cell></div>
@@ -27,6 +36,6 @@
     <div data-winning-message-text></div>
     <button id="restartButton">Restart</button>
   </div>
-  
+</div>  
 </body>
 </html>
