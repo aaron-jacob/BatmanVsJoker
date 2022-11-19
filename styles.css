@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+
 :root {
     --cell-size: 100px;
     --mark-size: var(--cell-size);
@@ -9,13 +10,44 @@
 
 body {
     margin: 0;
-    background-color: rgba(219,218,216,255);
-    background-image: url(bg.jpg);
+    background-color: #d9d9d9;
+    background-image: url(bg.png);
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;
 }
 
+.Project {
+    height: 90vh;
+    width: 90vw;
+}
+.scoreboard {
+    display: grid;
+	grid-template-columns: repeat(3, 2fr);
+	width: 70em;
+	font-family: 'Quicksand', sans-serif;
+    font-size: 1.4rem;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.scoreboard-name,
+.score {
+	display: flex;
+    padding: 0.3em;
+	text-align: center;
+}
+
+.scoreboard-name {
+	font-weight: bold;
+	border-bottom: 0.07em solid black;
+    color: black;
+}
+
+.score {
+	font-size: 2em;
+}
 
 
 .board {
