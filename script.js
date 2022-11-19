@@ -10,13 +10,25 @@ const WINNING_COMBINATIONS = [
     [0, 4, 8],
     [2, 4, 6]
 ]
+
+
+
 const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
+
 const winningMessageElement = document.getElementById('winningMessage')
 const restartButton = document.getElementById('restartButton')
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
+
 let circleTurn
 let circleTurnBeginning = true
+let xwins = 0
+let owins = 0
+let draws = 0
+document.querySelector(".score[data='drawpts']").textContent = draws;
+document.querySelector(".score[data='jokepts']").textContent = owins;
+document.querySelector(".score[data='batpts']").textContent = xwins;
+
 startGame()
 
 restartButton.addEventListener('click', startGame)
@@ -39,9 +51,18 @@ function handleClick(e) {
     const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
     placeMark(cell, currentClass)
     if (checkWin(currentClass)) {
+        
+        if(currentClass == CIRCLE_CLASS) {
+            owins = owins+1
+        }
+        else if(currentClass == X_CLASS) {
+            xwins = xwins+1
+        }
+
         setTimeout(endGame, 500, false)
     }
     else if (isDraw ()) {
+        draws = draws+1
         setTimeout(endGame, 500, true)
     }
     else {
@@ -54,13 +75,16 @@ function handleClick(e) {
 function endGame(draw)
 {
     if(draw) {
+        document.querySelector(".score[data='drawpts']").textContent = draws;
         winningMessageTextElement.innerText = 'An Unstoppable Force Meets An Immovable Object'
     }
     else {
         if(circleTurn) {
+            document.querySelector(".score[data='jokepts']").textContent = owins;
             winningMessageTextElement.innerText = 'Lets put a smile on that face - Joker'
         }
         else {
+            document.querySelector(".score[data='batpts']").textContent = xwins;
             winningMessageTextElement.innerText = 'Its not who I am underneath but what I do that defines me - Batman'
         }
         
