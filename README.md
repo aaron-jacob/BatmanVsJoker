@@ -11,7 +11,7 @@ This is a simple Tic Tac Toe game featuring Batman and Joker as the opposing pla
 5. The objective is to get three of your symbols in a horizontal, vertical, or diagonal row.
 6. The game ends when a player achieves the objective or when there are no more empty cells.
 7. If a winner is determined, a message will be displayed, indicating the winning player.
-8. To start a new game, click the "New Game" button.
+8. To start a new game, click the "Restart" button.
 
 ## Technologies Used
 
